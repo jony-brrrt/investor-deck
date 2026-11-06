@@ -316,7 +316,14 @@
     el.addEventListener('ended', function () { v.classList.remove('playing'); el.currentTime = 0; });
   });
 
-  document.querySelectorAll('.copy').forEach(function (b) {
+  document.querySelectorAll('a.copy[download]').forEach(function (a) {
+    a.addEventListener('click', function () {
+      var label = a.textContent;
+      setTimeout(function () { a.textContent = 'Downloaded \u2713'; }, 150);
+      setTimeout(function () { a.textContent = label; }, 2400);
+    });
+  });
+  document.querySelectorAll('button.copy[data-copy]').forEach(function (b) {
     b.addEventListener('click', function () {
       var text = b.getAttribute('data-copy'), label = b.textContent;
       function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = label; }, 1800); }
