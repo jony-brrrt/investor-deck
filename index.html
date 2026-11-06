@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>b.unit — vector deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+<style>
+  :root { --paper:#f4f4f2; --ink:#141414; --frame:#dcdcd6; }
+  * { box-sizing:border-box; margin:0; }
+  html, body { height:100%; }
+  body { background:var(--frame); overflow:hidden; color:var(--ink);
+         font-family:'IBM Plex Mono','Courier New',monospace; -webkit-font-smoothing:antialiased; }
+  #stage { position:fixed; left:50%; top:50%; width:1920px; height:1080px;
+           transform-origin:0 0; }
+  .slide { position:absolute; inset:0; width:1920px; height:1080px; overflow:hidden;
+           display:flex; flex-direction:column; color:var(--ink);
+           font-family:'IBM Plex Mono','Courier New',monospace;
+           opacity:0; visibility:hidden; transition:opacity .35s ease, visibility 0s linear .35s; }
+  .slide.on { opacity:1; visibility:visible; transition:opacity .35s ease; }
+  .slide div { display:flex; flex-direction:column; }
+  .slide div[style*="display"] { flex-direction:row; }
+  .slide h1 { font-size:96px; font-weight:600; line-height:1.1; }
+  .slide h2 { font-size:64px; font-weight:600; line-height:1.15; }
+  .slide h3 { font-size:44px; font-weight:600; line-height:1.2; }
+  .slide p  { font-size:32px; line-height:1.4; }
+  .slide ul { padding-left:1.15em; list-style:disc; }
+  .slide img { display:block; }
+  .vid video { width:100%; height:100%; object-fit:cover; display:block; background:#000; }
+  .vid .play { position:absolute; inset:0; width:100%; height:100%; border:0; padding:0;
+               background:rgba(20,20,20,.18); cursor:pointer; }
+  .vid .play::before { content:""; position:absolute; left:50%; top:50%; width:120px; height:120px;
+               margin:-60px 0 0 -60px; border-radius:50%; background:rgba(244,244,242,.92);
+               box-shadow:0 0 0 2px var(--ink); }
+  .vid .play::after { content:""; position:absolute; left:50%; top:50%; margin:-26px 0 0 -14px;
+               border-style:solid; border-width:26px 0 26px 44px;
+               border-color:transparent transparent transparent var(--ink); }
+  .vid.playing .play { background:transparent; }
+  .vid.playing .play::before, .vid.playing .play::after { display:none; }
+  #nav { position:fixed; right:16px; bottom:14px; display:flex; gap:6px; align-items:center;
+         font:500 13px/1 'IBM Plex Mono','Courier New',monospace; letter-spacing:.08em;
+         opacity:0; transition:opacity .2s; z-index:5; }
+  body:hover #nav, #nav:focus-within { opacity:1; }
+  #nav button { font:inherit; background:var(--paper); color:var(--ink); border:2px solid var(--ink);
+                padding:6px 10px; cursor:pointer; }
+  #nav button:hover { background:var(--ink); color:var(--paper); }
+  #count { background:var(--paper); border:2px solid var(--ink); padding:6px 10px; min-width:64px; text-align:center; }
+</style>
+</head>
+<body>
+<main id="stage" aria-live="polite">
+<section class="slide" id="cover" data-transition="fade" style="display:flex; flex-direction:column; gap:48px; justify-content:space-between; padding:128px 128px 160px; background:#f4f4f2">
+  <div style="display:flex; flex-direction:column; gap:32px">
+    <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">Investor brief · 2026</p>
+    <div style="width:96px; height:96px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#141414">
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:56px; font-weight:700; line-height:1; color:#f4f4f2">b</p>
+    </div>
+    <h1 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:160px; font-weight:700; line-height:1; letter-spacing:-6px; color:#141414">b.unit</h1>
+    <div style="width:240px; height:8px; display:flex; flex-direction:column; background:#141414">
+    </div>
+    <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; line-height:1.3; color:#5a5a5a">Generative game audio with context</p>
+  </div>
+  <p style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">01 / 09</p>
+  
+</section>
+<section class="slide" id="shift" data-transition="fade" style="background:#f4f4f2;color:#141414;font-family:'IBM Plex Mono', 'Courier New', monospace;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<p style="font-size:28px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#5a5a5a">The shift</p>
+<h2 style="font-size:72px;font-weight:700;letter-spacing:-1px;line-height:1.15">Game dev is already AI.</h2>
+<p style="font-size:36px;line-height:1.45;color:#5a5a5a">Smaller teams. Repetitive work handed to AI teammates. This isn’t a forecast.</p>
+<div style="flex:1"></div>
+<div style="display:flex;gap:24px">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid #141414;padding:32px">
+<svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true" style="display:block;flex:none" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+<p style="font-size:36px;font-weight:700;text-transform:uppercase">Code</p>
+<p style="font-size:28px;color:#5a5a5a">AI teammate</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid #141414;padding:32px">
+<svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true" style="display:block;flex:none" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+<p style="font-size:36px;font-weight:700;text-transform:uppercase">Art</p>
+<p style="font-size:28px;color:#5a5a5a">AI teammate</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid #141414;padding:32px">
+<svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true" style="display:block;flex:none" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+<p style="font-size:36px;font-weight:700;text-transform:uppercase">Design</p>
+<p style="font-size:28px;color:#5a5a5a">AI teammate</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid #141414;padding:32px">
+<svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true" style="display:block;flex:none" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
+<p style="font-size:36px;font-weight:700;text-transform:uppercase">QA</p>
+<p style="font-size:28px;color:#5a5a5a">AI teammate</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px dashed #a07800;padding:32px">
+<p style="font-size:48px;font-weight:700;line-height:1;color:#a07800">?</p>
+<p style="font-size:36px;font-weight:700;text-transform:uppercase">Audio</p>
+<p style="font-size:28px;font-weight:600;color:#141414">No real teammate</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:800px;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#5a5a5a">b.unit</p>
+<p style="position:absolute;right:128px;bottom:64px;width:400px;font-size:24px;letter-spacing:3px;text-align:right;color:#5a5a5a">02 / 09</p>
+
+</section>
+<section class="slide" id="problem" data-transition="fade" style="background:#141414">
+  <p id="e1-1gp23mk" style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#8c8c86">b.unit</p>
+  <p id="e2-1gp23mk" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#8c8c86">03 / 09</p>
+  <p id="pe1717977cd80r0-6ec92309" style="position:absolute; top:128px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#bdbdb6">The problem</p>
+  <h2 id="pe1717977cd80r1-6ec92309" style="position:absolute; top:207px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.2; letter-spacing:-1px; color:#f4f4f2">AI was supposed to raise the ceiling.<br><span style="color:#d9b24a">For game audio — it lowered it.</span></h2>
+  <p id="pe1717977cd80r3-6ec92309" style="position:absolute; top:calc(50% + 148.9px); left:50%; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:36px; line-height:1.5; color:#bdbdb6; transform:translate(-50%, -50%)">Base audio models have no context for the game. Teams generate hundreds of takes, sift through them by hand, and settle for an average result far from what they imagined.</p>
+  <div id="pe1717977cd80r4-6ec92309" style="position:absolute; top:819px; left:128px; width:120px; height:4px; display:flex; flex-direction:column; background:#f4f4f2">
+  </div>
+  <p id="pe1717977cd80r5-6ec92309" style="position:absolute; top:863px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:600; line-height:1.3; color:#f4f4f2">The standard is low and incomplete — we can’t accept that.</p>
+  
+</section>
+<section class="slide" id="tiers" data-transition="fade" style="display:flex; flex-direction:column; gap:36px; padding:128px 128px 160px; background:#f4f4f2">
+  <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">Three tiers</p>
+  <h2 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.15; letter-spacing:-1px; color:#141414">Three ways to build with AI audio.</h2>
+  <div style="display:grid; gap:24px; grid-template-columns:1fr 1fr 1fr">
+    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px dashed #8c8c86">
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">Tier 1 · fragile</p>
+      <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:700; color:#5a5a5a">Wrapper</h3>
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; line-height:1.35; color:#5a5a5a">One external model behind an interface. Breaks when the model changes, fails, or ships the feature itself.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; background:#dde4f0; border:2px solid #141414">
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#141414">Tier 2 · b.unit today</p>
+      <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:700; color:#141414">Compound</h3>
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; line-height:1.35; color:#141414">Routes across base models. Post-trained on production data. Wired into the pipeline. Any model can be replaced.</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px solid #141414">
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">Tier 3 · destination</p>
+      <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:700; color:#141414">Base model</h3>
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; line-height:1.35; color:#141414">Owns the full stack and the result. Built for what games need.</p>
+    </div>
+  </div>
+  <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; font-weight:700; line-height:1.4; color:#141414">Our Unique Formula; Dynamic base model + post-training on our own data: we build a brain that always keeps context of the game.</p>
+  <p style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">b.unit</p>
+  <p style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">04 / 09</p>
+  
+</section>
+<section class="slide" id="today" data-transition="fade" style="background:#f4f4f2">
+  <p id="e1-ibe1mm" style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">b.unit</p>
+  <p id="e2-ibe1mm" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">05 / 09</p>
+  <p id="pbed3522f47ear0-05c2cb30" style="position:absolute; top:128px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">b.unit today</p>
+  <h2 id="pbed3522f47ear1-05c2cb30" style="position:absolute; top:207px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.15; letter-spacing:-1px; color:#141414">An MCP that joins the dev team.</h2>
+  <div id="pbed3522f47ear2-05c2cb30" style="position:absolute; top:330px; left:128px; width:1664px; display:flex; flex-direction:row; gap:64px; align-items:start">
+    <div style="display:flex; flex-direction:column; gap:28px; flex:1">
+      <ul style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; line-height:1.45; color:#141414">
+        <li>Reads the project to learn what the game is</li>
+        <li>Generates sound and music</li>
+        <li>Delivers it back, wired to every event trigger</li>
+        <li>Code never leaves the studio’s machine</li>
+      </ul>
+    </div>
+    <div style="width:667px; display:flex; flex-direction:row; gap:56px; align-items:center">
+      <div class="vid" style="width:330px; height:584px; border:2px solid #141414; position:relative; overflow:hidden"><video src="assets/demo.mp4" poster="assets/demo-poster.jpg" playsinline preload="metadata" aria-label="Demo: b.unit sound and music in a mobile soccer game"></video><button class="play" type="button" aria-label="Play demo with sound"></button></div>
+    </div>
+  </div>
+  <p id="pbed3522f47ear2_0_2-05c2cb30" style="position:absolute; top:581.91px; left:128px; width:653px; height:80.21px; padding:16px 24px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:700; color:#f4f4f2; background:#141414">Live on 4 titles with funded studios</p>
+  <img src="assets/logo-whalo.png" alt="Whalo" id="c8960e4f" style="position:absolute; top:696.25px; left:128px; width:151px; height:36px; object-fit:contain">
+  <img src="assets/logo-candivore.png" alt="Candivore" id="692638ad" style="position:absolute; top:700.24px; left:314.93px; width:160px; height:36px; object-fit:contain">
+  <img src="assets/logo-vaulty.png" alt="Vaulty Studios" id="6b7d04c0" style="position:absolute; top:692.25px; left:528.67px; width:139px; height:44px; object-fit:contain">
+  <img src="assets/logo-bd.png" alt="bd studio logo" id="641fe57d" style="position:absolute; top:688.24px; left:725px; width:56px; height:44px; object-fit:contain">
+  
+</section>
+<section class="slide" id="vector" data-transition="fade" style="display:flex; flex-direction:column; gap:40px; padding:128px 128px 160px; background:#f4f4f2">
+  <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">The vector</p>
+  <h2 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.15; letter-spacing:-1px; color:#141414">We build from the top down.</h2>
+  <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:36px; line-height:1.45; color:#5a5a5a">Model companies build a model, then look for a market. We start inside the production converting our trusting clients to save cost in production and offer areal solution</p>
+  <div style="flex:1"></div>
+  <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr">
+    <div style="display:flex; flex-direction:column; gap:16px; padding:32px; background:#d9d3ec; border:2px solid #141414">
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#141414">Now</p>
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; font-weight:600; line-height:1.35; color:#141414">b.unit, live in production</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; padding:32px; border-top:2px solid #141414; border-right:2px solid #141414; border-bottom:2px solid #141414">
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">Round 1</p>
+      <p style="width:366px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; font-weight:600; line-height:1.35; color:#141414">Scale studios, revenue. dataset</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; padding:32px; border-top:2px solid #141414; border-right:2px solid #141414; border-bottom:2px solid #141414">
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">Round 2</p>
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; font-weight:600; line-height:1.35; color:#141414">A base model built for games</p>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; padding:32px; background:#141414; border-top:2px solid #141414; border-right:2px solid #141414; border-bottom:2px solid #141414">
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#bdbdb6">Year 5</p>
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; font-weight:600; line-height:1.35; color:#f4f4f2">The default audio model for game development</p>
+    </div>
+  </div>
+  <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:36px; font-weight:700; color:#141414">we own all the training data</p>
+  <p style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">b.unit</p>
+  <p style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">06 / 09</p>
+  
+</section>
+<section class="slide" id="round1" data-transition="fade" style="background:#f4f4f2">
+  <p id="e1-xrovr2" style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">b.unit</p>
+  <p id="e2-xrovr2" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">07 / 09</p>
+  <div id="pa45c6cd8f13cr0-b553e478" style="position:absolute; top:128px; left:128px; width:1664px; height:270px; display:flex; flex-direction:column; gap:16px">
+    <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">Round 1</p>
+    <h1 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:128px; font-weight:700; line-height:1.1; letter-spacing:-4px; color:#141414">$2.5M</h1>
+    <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:600; line-height:1.3; color:#141414">Scale b.unit.</p>
+  </div>
+  <div id="pa45c6cd8f13cr1-b553e478" style="position:absolute; top:445px; left:128px; width:1664px; height:341px; display:grid; gap:64px; grid-template-columns:1fr 1fr">
+    <div style="display:flex; flex-direction:column; gap:20px; padding:24px 0 0; border-top:2px solid #141414">
+      <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">Use of funds</h3>
+      <ul style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:36px; line-height:1.45; color:#141414">
+        <li>Pillars / Infra</li>
+        <li>Convert Our Clients&nbsp;</li>
+        <li>Key Team Members</li>
+        <li>Dataset - Post Training / Copmute</li>
+        <li>Travel - Marketing Establishment</li>
+      </ul>
+    </div>
+  </div>
+  
+</section>
+<section class="slide" id="founders" data-transition="fade" style="display:flex; flex-direction:column; gap:40px; padding:128px 128px 160px; background:#f4f4f2">
+  <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">Founders</p>
+  <h2 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.15; letter-spacing:-1px; color:#141414">The team.</h2>
+  <div style="flex:1"></div>
+  <div style="display:grid; gap:24px; grid-template-columns:1fr 1fr 1fr">
+    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px solid #141414">
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">CEO</p>
+      <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:56px; font-weight:700; line-height:1.1; color:#141414">Jony</h3>
+      <div style="height:2px; display:flex; flex-direction:column; background:#141414">
+      </div>
+      <ul style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; line-height:1.45; color:#141414">
+        <li>15 years in gaming</li>
+        <li>Jelly Btn/ Playtika</li>
+        <li>Co-founder of BRRRT</li>
+      </ul>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px solid #141414">
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">COO</p>
+      <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:56px; font-weight:700; line-height:1.1; color:#141414">Roy</h3>
+      <div style="height:2px; display:flex; flex-direction:column; background:#141414">
+      </div>
+      <ul style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; line-height:1.45; color:#141414">
+        <li>8 years in gaming</li>
+        <li>Audio tech expert</li>
+        <li>Co-Founder of BRRRT</li>
+      </ul>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px solid #141414">
+      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">CTO</p>
+      <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:56px; font-weight:700; line-height:1.1; color:#141414">Nir Elbaz</h3>
+      <div style="height:2px; display:flex; flex-direction:column; background:#141414">
+      </div>
+      <ul style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; line-height:1.45; color:#141414">
+        <li>CTO of EquityBee</li>
+        <li>10 years of coding</li>
+      </ul>
+    </div>
+  </div>
+  <p style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">b.unit</p>
+  <p style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">08 / 09</p>
+  
+</section>
+<section class="slide" id="thanks" data-transition="fade" style="background:#141414">
+  <p id="e1-1gz44a8" style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#8c8c86">b.unit</p>
+  <p id="e2-1gz44a8" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#8c8c86">09 / 09</p>
+  <div id="pea535e5a416cr0-0b00cbed" style="position:absolute; top:246px; left:128px; width:96px; height:96px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#f4f4f2">
+    <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:56px; font-weight:700; line-height:1; color:#141414">b</p>
+  </div>
+  <h1 id="pea535e5a416cr1-0b00cbed" style="position:absolute; top:382px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:160px; font-weight:700; line-height:1; letter-spacing:-6px; color:#f4f4f2">Thank you.</h1>
+  <div id="pea535e5a416cr2-0b00cbed" style="position:absolute; top:582px; left:128px; width:240px; height:8px; display:flex; flex-direction:column; background:#f4f4f2">
+  </div>
+  <p id="pea535e5a416cr3-0b00cbed" style="position:absolute; top:682.27px; left:50%; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:600; line-height:1.3; color:#d9b24a; transform:translateX(-50%)">jony@brrrt.audio<br><br>https://www.brrrt.audio/</p>
+</section>
+</main>
+<nav id="nav" aria-label="Slides">
+  <button type="button" id="prev" aria-label="Previous slide">&#8592;</button>
+  <span id="count"></span>
+  <button type="button" id="next" aria-label="Next slide">&#8594;</button>
+  <button type="button" id="fs" aria-label="Full screen">&#9974;</button>
+</nav>
+<script>
+(function () {
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var stage = document.getElementById('stage'), count = document.getElementById('count');
+  var i = 0;
+
+  function fit() {
+    var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    stage.style.transform = 'scale(' + s + ') translate(-50%, -50%)';
+  }
+  function stopVideos() {
+    document.querySelectorAll('.vid').forEach(function (v) {
+      var el = v.querySelector('video'); el.pause(); v.classList.remove('playing');
+    });
+  }
+  function show(n, push) {
+    i = Math.max(0, Math.min(slides.length - 1, n));
+    stopVideos();
+    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    count.textContent = (i + 1) + ' / ' + slides.length;
+    if (push !== false) history.replaceState(null, '', '#' + (i + 1));
+  }
+
+  document.querySelectorAll('.vid').forEach(function (v) {
+    var el = v.querySelector('video');
+    v.querySelector('.play').addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (el.paused) { el.muted = false; el.play(); } else { el.pause(); }
+    });
+    el.addEventListener('play', function () { v.classList.add('playing'); });
+    el.addEventListener('pause', function () { v.classList.remove('playing'); });
+    el.addEventListener('ended', function () { v.classList.remove('playing'); el.currentTime = 0; });
+  });
+
+  document.getElementById('prev').onclick = function () { show(i - 1); };
+  document.getElementById('next').onclick = function () { show(i + 1); };
+  document.getElementById('fs').onclick = function () {
+    if (document.fullscreenElement) document.exitFullscreen();
+    else document.documentElement.requestFullscreen && document.documentElement.requestFullscreen();
+  };
+  document.addEventListener('keydown', function (e) {
+    var k = e.key;
+    if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === ' ') { e.preventDefault(); show(i + 1); }
+    else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp') { e.preventDefault(); show(i - 1); }
+    else if (k === 'Home') show(0);
+    else if (k === 'End') show(slides.length - 1);
+    else if (k === 'f' || k === 'F') document.getElementById('fs').click();
+  });
+  var x0 = null;
+  document.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend', function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1));
+  });
+
+  window.addEventListener('resize', fit);
+  fit();
+  var start = parseInt((location.hash || '#1').slice(1), 10);
+  show(isNaN(start) ? 0 : start - 1, false);
+})();
+</script>
+</body>
+</html>
