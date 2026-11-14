@@ -48,6 +48,76 @@
   .slide a.pdfbtn { display:inline-block; padding:4px 12px; margin:0 4px; border:2px solid #141414; color:#141414; font-weight:600; letter-spacing:2px; line-height:1.2; }
   .slide a.pdfbtn:hover { background:#141414; color:#f4f4f2; opacity:1; }
   .pdf-only { display:none; }
+  /* MOBILE CSS START */
+  #m { display:none; }
+  @media (max-width: 820px) and (orientation: portrait), (max-width: 560px) {
+    html, body { height:auto; }
+    body { overflow-x:hidden; overflow-y:auto; background:#f4f4f2; }
+    #stage { display:none; }
+    #m { display:block; }
+  }
+  #m { font-family:'IBM Plex Mono','Courier New',monospace; color:#141414; overflow-x:hidden; }
+  #m .ms { position:relative; min-height:100vh; min-height:100svh; padding:14vw 7vw 16vw; display:flex; flex-direction:column; justify-content:center; gap:5vw; }
+  #m .eb { font-size:3.4vw; font-weight:600; letter-spacing:.7vw; text-transform:uppercase; color:#5a5a5a; }
+  #m .eb.c { text-align:center; margin-top:2vw; }
+  #m h1 { font-size:18vw; font-weight:700; line-height:1; letter-spacing:-.8vw; }
+  #m h1.ty { font-size:13.4vw; letter-spacing:-.5vw; white-space:nowrap; }
+  #m h1.r1 { font-size:15vw; letter-spacing:-.5vw; }
+  #m h2 { font-size:8.4vw; font-weight:700; line-height:1.15; letter-spacing:-.2vw; }
+  #m h3 { font-size:7vw; font-weight:700; line-height:1.15; }
+  #m p, #m li { font-size:4.5vw; line-height:1.45; }
+  #m .lead { font-size:5.4vw; color:#5a5a5a; line-height:1.3; }
+  #m .mut { color:#5a5a5a; }
+  #m .big { font-size:5.6vw; font-weight:600; line-height:1.3; }
+  #m .strong { font-weight:700; }
+  #m .bar { width:24vw; height:1.6vw; background:#141414; }
+  #m .bar.sm { width:14vw; height:.8vw; }
+  #m .rule { height:2px; background:#141414; }
+  #m .pg { position:absolute; right:7vw; bottom:7vw; font-size:3.2vw; letter-spacing:.6vw; color:#5a5a5a; }
+  #m .pg.dk { color:#8c8c86; }
+  #m .top { display:flex; flex-direction:row; justify-content:space-between; align-items:center; gap:3vw; flex-wrap:wrap; }
+  #m .tag { font-size:3.2vw; font-weight:700; letter-spacing:.5vw; text-transform:uppercase; color:#f4f4f2; background:#141414; padding:1.4vw 2.6vw; }
+  #m .bmark { width:16vw; height:16vw; display:flex; align-items:center; justify-content:center; background:#141414; color:#f4f4f2; font-size:9.4vw; font-weight:700; }
+  #m .bmark.inv { background:#f4f4f2; color:#141414; }
+  #m .pdfnote { font-size:5.2vw; font-weight:600; color:#141414; margin-top:4vw; }
+  #m a.pdfbtn { display:inline-block; padding:1.6vw 4vw; margin:0 1vw; border:2px solid #141414; color:#f4f4f2; background:#141414; font-weight:700; letter-spacing:.5vw; text-decoration:none; }
+  #m .hint { font-size:3.4vw; color:#8c8c86; letter-spacing:.5vw; text-transform:uppercase; }
+  #m .cards { display:flex; flex-direction:column; gap:8vw; margin-top:2vw; padding-right:4vw; }
+  #m .mcard { display:flex; flex-direction:row; align-items:center; gap:4vw; padding:3.6vw 4.4vw; border:2px solid transparent; }
+  #m .mcard b { font-size:5vw; text-transform:uppercase; min-width:22vw; }
+  #m .mcard .sub { font-size:4vw; color:#5a5a5a; }
+  #m .mcard .sub.strong { color:#141414; font-weight:600; }
+  #m .mcard .ic { width:6vw; height:6vw; display:flex; align-items:center; justify-content:center; flex:none; }
+  #m .mcard .ic svg { width:6vw; height:6vw; }
+  #m .mcard .ic.q { color:#a07800; font-size:6.4vw; font-weight:700; }
+  #m .lay { position:relative; height:90vw; margin:2vw 0; }
+  #m .lay-svg { position:absolute; left:18vw; top:5vw; width:50vw; }
+  #m .layer { position:absolute; width:37vw; padding:1.8vw 2.4vw; background:rgba(244,244,242,.94); border:2px solid #141414; z-index:1; }
+  #m .layer h3 { font-size:4.2vw; margin:.2vw 0; }
+  #m .layer .eb { font-size:2.2vw; letter-spacing:.25vw; }
+  #m .layer .mut { font-size:2.9vw; line-height:1.3; }
+  #m .msteps { list-style:none; margin:0; padding:0; }
+  #m .msteps li { font-size:4.4vw; gap:4vw; padding:2.4vw 0; }
+  #m .msteps li span { font-size:3.2vw; min-width:6vw; }
+  #m .foot { font-size:3.6vw; color:#5a5a5a; }
+  #m .mstage { position:relative; align-self:center; margin-top:-2vw; }
+  #m .pill { align-self:center; font-size:4.4vw; font-weight:700; color:#f4f4f2; background:#141414; padding:3vw 6vw; text-align:center; }
+  #m .logos { display:flex; flex-direction:column; gap:5vw; padding:0 2vw; }
+  #m .logos .row { display:flex; flex-direction:row; justify-content:space-between; align-items:center; }
+  #m .logos .row.c { justify-content:center; gap:12vw; }
+  #m .logos img { height:6.4vw; width:auto; max-width:27vw; object-fit:contain; display:block; }
+  #m .logos img.tall { height:7.6vw; }
+  #m .list { padding-left:1.15em; list-style:disc; }
+  #m .list li { font-size:5vw; }
+  #m .fcards { display:flex; flex-direction:column; gap:9vw; padding-right:4vw; }
+  #m .fcard { display:flex; flex-direction:column; gap:2.4vw; padding:5vw; border:2px solid transparent; }
+  #m .fcard h3 { font-size:9vw; }
+  #m .fcard ul { padding-left:1.15em; list-style:disc; }
+  #m .contact { font-size:5.4vw; font-weight:600; }
+  #m .contact a { color:#d9b24a; text-decoration:none; }
+  #m .btns { display:flex; flex-direction:row; flex-wrap:wrap; gap:3vw; }
+  #m .copy { display:inline-block; padding:3vw 4vw; font:600 3.6vw/1 'IBM Plex Mono','Courier New',monospace; letter-spacing:.5vw; text-transform:uppercase; color:#f4f4f2; background:transparent; border:2px solid #f4f4f2; cursor:pointer; text-decoration:none; }
+  /* MOBILE CSS END */
   .vid video { width:100%; height:100%; object-fit:cover; display:block; background:#000; }
   .vid .play { position:absolute; inset:0; width:100%; height:100%; border:0; padding:0;
                background:rgba(20,20,20,.18); cursor:pointer; }
@@ -267,11 +337,124 @@
   <p id="pea535e5a416cr3-0b00cbed" style="position:absolute; top:682.27px; left:50%; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:600; line-height:1.3; color:#d9b24a; transform:translateX(-50%)"><a href="mailto:jony@brrrt.audio">jony@brrrt.audio</a><button class="copy" type="button" data-copy="jony@brrrt.audio">Copy email</button><a class="copy" href="assets/bunit-deck.pdf" download="b.unit-deck.pdf" style="margin-left:16px">Download PDF</a><br><br><a href="https://www.brrrt.audio/" target="_blank" rel="noopener">https://www.brrrt.audio/</a></p>
 </section>
 </main>
+<!-- MOBILE START -->
+<main id="m" aria-label="b.unit investor brief, mobile version">
+<section class="ms" style="background:#f4f4f2">
+  <div class="top"><p class="eb">Investor brief · 2026</p><p class="tag">Mobile version</p></div>
+  <div class="bmark">b</div>
+  <h1>b.unit</h1>
+  <div class="bar"></div>
+  <p class="lead">Generative game audio with context</p>
+  <p class="pdfnote">* or view a <a class="pdfbtn" href="assets/bunit-deck.pdf" target="_blank" rel="noopener">PDF</a> version instead</p>
+  <p class="hint">Scroll ↓</p>
+  <p class="pg">01 / 08</p>
+</section>
+<section class="ms" style="background:#f4f4f2">
+  <p class="eb">The shift</p>
+  <h2>Game dev is already AI.</h2>
+  <p class="mut">Smaller teams. Repetitive work handed to AI teammates. This isn’t a forecast.</p>
+  <div class="cards"><div class="sk mcard"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><b>Code</b><span class="sub">AI teammate</span></div><div class="sk mcard"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><b>Art</b><span class="sub">AI teammate</span></div><div class="sk mcard"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><b>Design</b><span class="sub">AI teammate</span></div><div class="sk mcard"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span><b>QA</b><span class="sub">AI teammate</span></div><div class="sk sk-ghost mcard"><span class="ic q">?</span><b>Audio</b><span class="sub strong">No real teammate</span></div></div>
+  <p class="pg">02 / 08</p>
+</section>
+<section class="ms dark" style="background:#141414">
+  <p class="eb" style="color:#bdbdb6">The problem</p>
+  <h2 style="color:#f4f4f2">AI was supposed to raise the ceiling. <span style="color:#d9b24a">For game audio — it lowered it.</span></h2>
+  <p style="color:#bdbdb6">Base audio models have no context for the game. Teams generate hundreds of takes, sift through them by hand, and settle for an average result far from what they imagined.</p>
+  <div class="bar sm" style="background:#f4f4f2"></div>
+  <p class="big" style="color:#f4f4f2">The standard is low and incomplete — we can’t accept that.</p>
+  <p class="pg dk">03 / 08</p>
+</section>
+<section class="ms" style="background:#f4f4f2">
+  <p class="eb">The gist of it</p>
+  <h2>Gen AI audio.</h2>
+  <div class="lay"><div class="lay-svg"><svg class="layers" viewBox="150 0 520 600" role="img" aria-label="Three stacked layers: a generic base model at the bottom, an unstable wrapper floating above it, and the b.unit compound of skill modules on top, anchored to the base model." style="display:block; width:100%; height:auto; overflow:visible"><defs>
+  <pattern id="mhatchL" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(60)">
+    <rect width="9" height="9" fill="#f4f4f2"/><line x1="0" y1="0" x2="0" y2="9" stroke="#141414" stroke-width="1.2" opacity=".55"/></pattern>
+  <pattern id="mhatchR" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-60)">
+    <rect width="6" height="6" fill="#f4f4f2"/><line x1="0" y1="0" x2="0" y2="6" stroke="#141414" stroke-width="1.4" opacity=".8"/></pattern>
+</defs><polygon points="180.5,470.0 380.0,585.2 380.0,553.5 180.5,438.3" fill="url(#mhatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="579.5,470.0 380.0,585.2 380.0,553.5 579.5,438.3" fill="url(#mhatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="380.0,323.1 579.5,438.3 380.0,553.5 180.5,438.3" fill="#f4f4f2" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="338.7,379.6 353.1,395.9 315.3,407.0 300.9,390.7" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><polygon points="269.9,439.8 299.5,446.4 284.4,469.2 254.7,462.6" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><polygon points="404.3,492.0 409.8,510.0 368.1,514.3 362.6,496.2" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><polygon points="502.9,423.1 529.5,433.1 506.5,453.6 479.9,443.6" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><polygon points="461.7,381.7 458.9,399.9 416.8,397.8 419.5,379.5" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><polygon points="384.2,443.4 403.3,458.1 369.5,472.8 350.4,458.2" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><line x1="210.4" y1="438.3" x2="210.4" y2="146.0" stroke="#141414" stroke-width="2" stroke-dasharray="3 7" opacity=".6"/><line x1="380.0" y1="536.2" x2="380.0" y2="243.9" stroke="#141414" stroke-width="2" stroke-dasharray="3 7" opacity=".6"/><line x1="549.6" y1="438.3" x2="549.6" y2="146.0" stroke="#141414" stroke-width="2" stroke-dasharray="3 7" opacity=".6"/><g class="wobble" style="transform-origin:389px 291px"><g transform="rotate(-3 389 291)"><polygon points="227.2,295.4 389.4,389.0 389.4,380.4 227.2,286.8" fill="url(#mhatchL)" stroke="#141414" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="10 7"/><polygon points="551.5,295.4 389.4,389.0 389.4,380.4 551.5,286.8" fill="url(#mhatchR)" stroke="#141414" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="10 7"/><polygon points="389.4,193.2 551.5,286.8 389.4,380.4 227.2,286.8" fill="rgba(244,244,242,.55)" stroke="#141414" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="10 7"/></g><path d="M171,246 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/><path d="M171,260 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/><path d="M608,275 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/><path d="M608,289 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/></g><polygon points="327.6,78.3 380.0,108.6 380.0,76.9 327.6,46.6" fill="url(#mhatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="432.4,78.3 380.0,108.6 380.0,76.9 432.4,46.6" fill="url(#mhatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="380.0,16.4 432.4,46.6 380.0,76.9 327.6,46.6" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="269.0,112.2 321.4,142.4 321.4,110.7 269.0,80.5" fill="url(#mhatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="373.8,112.2 321.4,142.4 321.4,110.7 373.8,80.5" fill="url(#mhatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="321.4,50.2 373.8,80.5 321.4,110.7 269.0,80.5" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="386.2,112.2 438.6,142.4 438.6,110.7 386.2,80.5" fill="url(#mhatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="491.0,112.2 438.6,142.4 438.6,110.7 491.0,80.5" fill="url(#mhatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="438.6,50.2 491.0,80.5 438.6,110.7 386.2,80.5" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="210.4,146.0 262.8,176.2 262.8,144.6 210.4,114.3" fill="url(#mhatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="315.2,146.0 262.8,176.2 262.8,144.6 315.2,114.3" fill="url(#mhatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="262.8,84.1 315.2,114.3 262.8,144.6 210.4,114.3" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="327.6,146.0 380.0,176.2 380.0,137.4 327.6,107.1" fill="url(#mhatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="432.4,146.0 380.0,176.2 380.0,137.4 432.4,107.1" fill="url(#mhatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="380.0,76.9 432.4,107.1 380.0,137.4 327.6,107.1" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="444.8,146.0 497.2,176.2 497.2,144.6 444.8,114.3" fill="url(#mhatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="549.6,146.0 497.2,176.2 497.2,144.6 549.6,114.3" fill="url(#mhatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="497.2,84.1 549.6,114.3 497.2,144.6 444.8,114.3" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="269.0,179.8 321.4,210.1 321.4,178.4 269.0,148.2" fill="url(#mhatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="373.8,179.8 321.4,210.1 321.4,178.4 373.8,148.2" fill="url(#mhatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="321.4,117.9 373.8,148.2 321.4,178.4 269.0,148.2" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="386.2,179.8 438.6,210.1 438.6,178.4 386.2,148.2" fill="url(#mhatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="491.0,179.8 438.6,210.1 438.6,178.4 491.0,148.2" fill="url(#mhatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="438.6,117.9 491.0,148.2 438.6,178.4 386.2,148.2" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="327.6,213.7 380.0,243.9 380.0,212.2 327.6,182.0" fill="url(#mhatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="432.4,213.7 380.0,243.9 380.0,212.2 432.4,182.0" fill="url(#mhatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="380.0,151.8 432.4,182.0 380.0,212.2 327.6,182.0" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/></svg></div><div class="layer" style="top:1vw; right:0"><p class="eb">Layer 3 · b.unit</p><h3 style="color:#141414">Compound</h3><p class="mut">Skills built for game dev: context, state, style, loops, variations and layers.</p></div><div class="layer" style="top:25vw; left:0"><p class="eb">Layer 2 · unstable</p><h3 style="color:#5a5a5a">Wrapper</h3><p class="mut">One model behind an interface. Inherits its randomness, breaks when it changes.</p></div><div class="layer" style="top:47vw; right:0"><p class="eb">Layer 1 · what everyone uses</p><h3 style="color:#141414">Base model</h3><p class="mut">Random and generic: no context, no state, no style, no fit for game dev.</p></div></div>
+  <p class="strong">We build a brain that is always up to date and in the context of the game.</p>
+  <p class="pg">04 / 08</p>
+</section>
+<section class="ms" style="background:#f4f4f2">
+  <p class="eb">Bootstrap</p>
+  <h2>An MCP that joins the dev team.</h2>
+  <ol class="steps5 msteps">
+    <li><span>01</span>Reads the project to learn what the game is</li>
+    <li><span>02</span>Generates sound and music with context</li>
+    <li><span>03</span>Unique abilities</li>
+    <li><span>04</span>Delivers it back, wired to every event trigger</li>
+    <li><span>05</span>Code never leaves the studio’s machine</li>
+  </ol>
+  <p class="foot">* No reverse engineering. We own the training data.</p>
+  <p class="eb c">Live demo · sound on</p>
+  <div class="mstage" data-w="556" style="width:556px; height:660px">
+    <svg width="556" height="660" viewBox="0 0 556 660" style="position:absolute; left:0; top:0; overflow:visible" aria-hidden="true">
+<defs>
+  <pattern id="mh5L" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(60)"><rect width="9" height="9" fill="#f4f4f2"/><line x1="0" y1="0" x2="0" y2="9" stroke="#141414" stroke-width="1" opacity=".3"/></pattern>
+  <pattern id="mh5R" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-60)"><rect width="6" height="6" fill="#f4f4f2"/><line x1="0" y1="0" x2="0" y2="6" stroke="#141414" stroke-width="1" opacity=".45"/></pattern>
+</defs>
+<polygon points="225.3,434.4 298.0,464.6 298.0,504.6 225.3,474.4" fill="url(#mh5L)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="298.0,464.6 370.7,434.4 370.7,474.4 298.0,504.6" fill="url(#mh5R)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="298.0,404.2 370.7,434.4 298.0,464.6 225.3,434.4" fill="#e8ecf3" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="143.9,468.2 216.6,498.5 216.6,538.5 143.9,508.2" fill="url(#mh5L)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="216.6,498.5 289.3,468.2 289.3,508.2 216.6,538.5" fill="url(#mh5R)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="216.6,438.0 289.3,468.2 216.6,498.5 143.9,468.2" fill="#e8ecf3" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="306.7,468.2 379.4,498.5 379.4,538.5 306.7,508.2" fill="url(#mh5L)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="379.4,498.5 452.1,468.2 452.1,508.2 379.4,538.5" fill="url(#mh5R)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="379.4,438.0 452.1,468.2 379.4,498.5 306.7,468.2" fill="#e8ecf3" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="62.4,502.1 135.2,532.3 135.2,572.3 62.4,542.1" fill="url(#mh5L)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="135.2,532.3 207.9,502.1 207.9,542.1 135.2,572.3" fill="url(#mh5R)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="135.2,471.8 207.9,502.1 135.2,532.3 62.4,502.1" fill="#e8ecf3" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="225.3,502.1 298.0,532.3 298.0,572.3 225.3,542.1" fill="url(#mh5L)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="298.0,532.3 370.7,502.1 370.7,542.1 298.0,572.3" fill="url(#mh5R)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="298.0,471.8 370.7,502.1 298.0,532.3 225.3,502.1" fill="#e8ecf3" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="388.1,502.1 460.8,532.3 460.8,572.3 388.1,542.1" fill="url(#mh5L)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="460.8,532.3 533.6,502.1 533.6,542.1 460.8,572.3" fill="url(#mh5R)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="460.8,471.8 533.6,502.1 460.8,532.3 388.1,502.1" fill="#e8ecf3" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="143.9,535.9 216.6,566.2 216.6,606.2 143.9,575.9" fill="url(#mh5L)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="216.6,566.2 289.3,535.9 289.3,575.9 216.6,606.2" fill="url(#mh5R)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="216.6,505.7 289.3,535.9 216.6,566.2 143.9,535.9" fill="#e8ecf3" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="306.7,535.9 379.4,566.2 379.4,606.2 306.7,575.9" fill="url(#mh5L)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="379.4,566.2 452.1,535.9 452.1,575.9 379.4,606.2" fill="url(#mh5R)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="379.4,505.7 452.1,535.9 379.4,566.2 306.7,535.9" fill="#e8ecf3" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="225.3,569.8 298.0,600.0 298.0,640.0 225.3,609.8" fill="url(#mh5L)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="298.0,600.0 370.7,569.8 370.7,609.8 298.0,640.0" fill="url(#mh5R)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/><polygon points="298.0,539.5 370.7,569.8 298.0,600.0 225.3,569.8" fill="#e8ecf3" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/>
+<path d="M101.0,238.8 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/><path d="M101.0,252.8 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/>
+<path d="M463.0,286.6 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/><path d="M463.0,300.6 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/>
+
+
+</svg>
+    <div class="vid" style="position:absolute; left:163.0px; top:38.1px; width:270px; height:478px; border:2px solid #141414; overflow:hidden"><video src="assets/demo.mp4" poster="assets/demo-poster.jpg" playsinline preload="none" aria-label="Demo: b.unit sound and music in a mobile soccer game"></video><button class="play" type="button" aria-label="Play demo with sound"></button></div>
+  </div>
+  <p class="pill">Live on 5 funded studios</p>
+  <div class="logos"><div class="row">
+<img src="assets/logo-whalo.png" alt="Whalo"><img src="assets/logo-candivore.png" alt="Candivore"><img src="assets/logo-vaulty.png" alt="Vaulty Studios" class="tall"></div>
+<div class="row c"><img src="assets/logo-spaceplay.png" alt="Spaceplay"><img src="assets/logo-bd.png" alt="bd studio logo" class="tall sq"></div></div>
+  <p class="pg">05 / 08</p>
+</section>
+<section class="ms" style="background:#f4f4f2">
+  <p class="eb">Round 1</p>
+  <h1 class="r1">Pre-seed</h1>
+  <p class="big">Scale b.unit.</p>
+  <div class="rule"></div>
+  <p class="eb">Speed things up</p>
+  <ul class="list">
+        <li>Pillars</li>
+        <li>Key team members</li>
+        <li>Dataset / compute</li>
+        <li style="font-weight:700">More features</li>
+        <li>Positioning</li>
+        <li>Access to more funds</li>
+      </ul>
+  <p class="pg">06 / 08</p>
+</section>
+<section class="ms" style="background:#f4f4f2">
+  <p class="eb">Founders</p>
+  <h2>The team.</h2>
+  <div class="fcards"><div class="sk fcard"><p class="eb">CEO</p><h3>Jony</h3><div class="rule"></div><ul><li>15 years in gaming</li><li>Jelly Btn/ Playtika</li><li>Co-founder of BRRRT</li></ul></div><div class="sk fcard"><p class="eb">COO</p><h3>Roy</h3><div class="rule"></div><ul><li>8 years in gaming</li><li>Audio tech expert</li><li>Co-Founder of BRRRT</li></ul></div><div class="sk fcard"><p class="eb">CTO</p><h3>Nir</h3><div class="rule"></div><ul><li>18 years in software</li><li>EquityBee’s architect</li><li>Co-founder of Boldwin</li></ul></div></div>
+  <p class="pg">07 / 08</p>
+</section>
+<section class="ms dark" style="background:#141414">
+  <div class="bmark inv">b</div>
+  <h1 class="ty" style="color:#f4f4f2">Thank you.</h1>
+  <div class="bar" style="background:#f4f4f2"></div>
+  <p class="contact"><a href="mailto:jony@brrrt.audio">jony@brrrt.audio</a></p>
+  <div class="btns"><button class="copy" type="button" data-copy="jony@brrrt.audio">Copy email</button><a class="copy" href="assets/bunit-deck.pdf" download="b.unit-deck.pdf">Download PDF</a></div>
+  <p class="contact"><a href="https://www.brrrt.audio/" target="_blank" rel="noopener">brrrt.audio</a></p>
+  <p class="pg dk">08 / 08</p>
+</section>
+</main>
+<script>
+/* mobile: scale the slide-5 stage (fixed px drawing) to the screen width */
+(function () {
+  function z() { document.querySelectorAll('#m .mstage').forEach(function (e) {
+    e.style.zoom = Math.min(1, (window.innerWidth * 0.86) / +e.getAttribute('data-w')); }); }
+  window.addEventListener('resize', z); z();
+})();
+</script>
+<!-- MOBILE END -->
 <script>
 (function () {
   var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
   var stage = document.getElementById('stage'), count = null;
   var i = 0;
+  var isM = function () { return document.getElementById('m').offsetParent !== null || getComputedStyle(document.getElementById('m')).display !== 'none'; };
 
   function fit() {
     var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
@@ -286,8 +469,8 @@
     i = Math.max(0, Math.min(slides.length - 1, n));
     stopVideos();
     slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
-    document.documentElement.style.background = document.body.style.background = getComputedStyle(slides[i]).backgroundColor;
-    if (push !== false) history.replaceState(null, '', '#' + (i + 1));
+    if (!isM()) document.documentElement.style.background = document.body.style.background = getComputedStyle(slides[i]).backgroundColor;
+    if (push !== false && !isM()) history.replaceState(null, '', '#' + (i + 1));
   }
 
   document.querySelectorAll('.vid').forEach(function (v) {
@@ -323,6 +506,7 @@
     });
   });
   document.addEventListener('keydown', function (e) {
+    if (isM()) return;
     var k = e.key;
     if (k === 'ArrowRight' || k === 'ArrowDown' || k === 'PageDown' || k === ' ') { e.preventDefault(); show(i + 1); }
     else if (k === 'ArrowLeft' || k === 'ArrowUp' || k === 'PageUp') { e.preventDefault(); show(i - 1); }
@@ -336,13 +520,13 @@
   var x0 = null;
   document.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
   document.addEventListener('touchend', function (e) {
-    if (x0 === null) return;
+    if (x0 === null || isM()) { x0 = null; return; }
     var dx = e.changedTouches[0].clientX - x0; x0 = null;
     if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1));
   });
 
   document.addEventListener('click', function (e) {
-    if (e.target.closest('a, button, .vid')) return;
+    if (isM() || e.target.closest('a, button, .vid')) return;
     show(i + (e.clientX < window.innerWidth / 3 ? -1 : 1));
   });
   window.addEventListener('resize', fit);
@@ -369,10 +553,14 @@
       g.appendChild(el('path', a));
     });
   }
+  function draw() {
+  seed = 11;
   document.querySelectorAll('.sk').forEach(function (c) {
+    var prev = c.querySelector(':scope > svg.skf'); if (prev) prev.remove();
     var w = c.offsetWidth, h = c.offsetHeight, ghost = c.classList.contains('sk-ghost');
+    if (!w) return;
     c.style.position = 'relative'; c.style.zIndex = '0';
-    var s = el('svg', { width: w, height: h, 'aria-hidden': 'true' });
+    var s = el('svg', { width: w, height: h, 'aria-hidden': 'true', 'class': 'skf' });
     s.style.cssText = 'position:absolute;left:-2px;top:-2px;overflow:visible;z-index:-1;pointer-events:none';
     var g = el('g', {}), col = ghost ? '#a07800' : '#141414', o = 8;
     if (!ghost) {
@@ -385,6 +573,10 @@
     stroke(g, w + o * .4, h, -o, h, col, 2.4, ghost); stroke(g, 0, h + o * .5, 0, -o, col, 2.4, ghost);
     s.appendChild(g); c.insertBefore(s, c.firstChild);
   });
+  }
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(draw, 150); });
+  draw();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(draw);
 })();
 </script>
 </body>
