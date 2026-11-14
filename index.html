@@ -61,6 +61,12 @@
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="sk-rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.011" numOctaves="1" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.6"/></filter>
+  <pattern id="skL" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(60)"><rect width="9" height="9" fill="#f4f4f2"/><line x1="0" y1="0" x2="0" y2="9" stroke="#141414" stroke-width="1.2" opacity=".5"/></pattern>
+  <pattern id="skR" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-60)"><rect width="6" height="6" fill="#f4f4f2"/><line x1="0" y1="0" x2="0" y2="6" stroke="#141414" stroke-width="1.3" opacity=".7"/></pattern>
+</defs></svg>
+
 <main id="stage" aria-live="polite">
 <section class="slide" id="cover" data-transition="fade" style="display:flex; flex-direction:column; gap:48px; justify-content:space-between; padding:128px 128px 160px; background:#f4f4f2">
   <div style="display:flex; flex-direction:column; gap:32px">
@@ -83,27 +89,27 @@
 <p style="font-size:36px;line-height:1.45;color:#5a5a5a">Smaller teams. Repetitive work handed to AI teammates. This isn’t a forecast.</p>
 <div style="flex:1"></div>
 <div style="display:flex;gap:24px">
-<div style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid #141414;padding:32px">
+<div class="sk" style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid transparent;padding:32px">
 <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true" style="display:block;flex:none" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
 <p style="font-size:36px;font-weight:700;text-transform:uppercase">Code</p>
 <p style="font-size:28px;color:#5a5a5a">AI teammate</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid #141414;padding:32px">
+<div class="sk" style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid transparent;padding:32px">
 <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true" style="display:block;flex:none" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
 <p style="font-size:36px;font-weight:700;text-transform:uppercase">Art</p>
 <p style="font-size:28px;color:#5a5a5a">AI teammate</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid #141414;padding:32px">
+<div class="sk" style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid transparent;padding:32px">
 <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true" style="display:block;flex:none" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
 <p style="font-size:36px;font-weight:700;text-transform:uppercase">Design</p>
 <p style="font-size:28px;color:#5a5a5a">AI teammate</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid #141414;padding:32px">
+<div class="sk" style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid transparent;padding:32px">
 <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true" style="display:block;flex:none" fill="none" stroke="#141414" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg>
 <p style="font-size:36px;font-weight:700;text-transform:uppercase">QA</p>
 <p style="font-size:28px;color:#5a5a5a">AI teammate</p>
 </div>
-<div style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px dashed #a07800;padding:32px">
+<div class="sk sk-ghost" style="flex:1;display:flex;flex-direction:column;gap:20px;border:2px solid transparent;padding:32px">
 <p style="font-size:48px;font-weight:700;line-height:1;color:#a07800">?</p>
 <p style="font-size:36px;font-weight:700;text-transform:uppercase">Audio</p>
 <p style="font-size:28px;font-weight:600;color:#141414">No real teammate</p>
@@ -125,7 +131,7 @@
   
 </section>
 <section class="slide" id="tiers" data-transition="fade" style="background:#f4f4f2">
-  <p style="position:absolute; top:128px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">Three layers</p>
+  <p style="position:absolute; top:128px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">The gist of it</p>
   <h2 style="position:absolute; top:176px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.15; letter-spacing:-1px; color:#141414">Gen AI audio.</h2>
   <svg class="layers" viewBox="0 0 900 590" width="900" height="590" role="img" aria-label="Three stacked layers: a generic base model at the bottom, an unstable wrapper floating above it, and the b.unit compound of skill modules on top, anchored to the base model." style="position:absolute; left:140px; top:286px; overflow:visible"><defs>
   <pattern id="hatchL" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(60)">
@@ -207,7 +213,7 @@
   <h2 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.15; letter-spacing:-1px; color:#141414">The team.</h2>
   <div style="flex:1"></div>
   <div style="display:grid; gap:24px; grid-template-columns:1fr 1fr 1fr">
-    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px solid #141414">
+    <div class="sk" style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px solid transparent">
       <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">CEO</p>
       <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:56px; font-weight:700; line-height:1.1; color:#141414">Jony</h3>
       <div style="height:2px; display:flex; flex-direction:column; background:#141414">
@@ -218,7 +224,7 @@
         <li>Co-founder of BRRRT</li>
       </ul>
     </div>
-    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px solid #141414">
+    <div class="sk" style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px solid transparent">
       <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">COO</p>
       <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:56px; font-weight:700; line-height:1.1; color:#141414">Roy</h3>
       <div style="height:2px; display:flex; flex-direction:column; background:#141414">
@@ -229,7 +235,7 @@
         <li>Co-Founder of BRRRT</li>
       </ul>
     </div>
-    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px solid #141414">
+    <div class="sk" style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px solid transparent">
       <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">CTO</p>
       <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:56px; font-weight:700; line-height:1.1; color:#141414">Nir</h3>
       <div style="height:2px; display:flex; flex-direction:column; background:#141414">
@@ -254,7 +260,7 @@
   <h1 id="pea535e5a416cr1-0b00cbed" style="position:absolute; top:382px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:160px; font-weight:700; line-height:1; letter-spacing:-6px; color:#f4f4f2">Thank you.</h1>
   <div id="pea535e5a416cr2-0b00cbed" style="position:absolute; top:582px; left:128px; width:240px; height:8px; display:flex; flex-direction:column; background:#f4f4f2">
   </div>
-  <p id="pea535e5a416cr3-0b00cbed" style="position:absolute; top:682.27px; left:50%; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:600; line-height:1.3; color:#d9b24a; transform:translateX(-50%)"><a href="mailto:jony@brrrt.audio">jony@brrrt.audio</a><button class="copy" type="button" data-copy="jony@brrrt.audio">Copy email</button><br><br><a href="https://www.brrrt.audio/" target="_blank" rel="noopener">https://www.brrrt.audio/</a><a class="copy" href="assets/bunit-deck.pdf" download="b.unit-deck.pdf">Download PDF</a></p>
+  <p id="pea535e5a416cr3-0b00cbed" style="position:absolute; top:682.27px; left:50%; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:600; line-height:1.3; color:#d9b24a; transform:translateX(-50%)"><a href="mailto:jony@brrrt.audio">jony@brrrt.audio</a><button class="copy" type="button" data-copy="jony@brrrt.audio">Copy email</button><a class="copy" href="assets/bunit-deck.pdf" download="b.unit-deck.pdf" style="margin-left:16px">Download PDF</a><br><br><a href="https://www.brrrt.audio/" target="_blank" rel="noopener">https://www.brrrt.audio/</a></p>
 </section>
 </main>
 <script>
@@ -339,6 +345,42 @@
   fit();
   var start = parseInt((location.hash || '#1').slice(1), 10);
   show(isNaN(start) ? 0 : start - 1, false);
+})();
+</script>
+<script>
+/* Sketch frames for cards (slides 2 & 7): hand-drawn double-stroke ink outline with corner
+   overshoot, plus a hatched depth like slide 4's boxes. Ghost card = dashed amber, no depth. */
+(function () {
+  var NS = 'http://www.w3.org/2000/svg', D = 14, seed = 11;
+  function rnd() { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; }
+  function j(a) { return (rnd() - .5) * 2 * a; }
+  function el(n, a) { var e = document.createElementNS(NS, n); for (var k in a) e.setAttribute(k, a[k]); return e; }
+  function stroke(g, x1, y1, x2, y2, col, w, dash) {
+    var len = Math.hypot(x2 - x1, y2 - y1), nx = -(y2 - y1) / len, ny = (x2 - x1) / len;
+    [[w, 1, 1.6], [w * .55, .65, 2.4]].forEach(function (pass) {
+      var bow = j(Math.min(4, len * .006)) , mx = (x1 + x2) / 2 + nx * bow, my = (y1 + y2) / 2 + ny * bow;
+      var d = 'M' + (x1 + j(pass[2])) + ',' + (y1 + j(pass[2])) + ' Q' + mx + ',' + my + ' ' + (x2 + j(pass[2])) + ',' + (y2 + j(pass[2]));
+      var a = { d: d, fill: 'none', stroke: col, 'stroke-width': pass[0], opacity: pass[1], 'stroke-linecap': 'round' };
+      if (dash) a['stroke-dasharray'] = '9 7';
+      g.appendChild(el('path', a));
+    });
+  }
+  document.querySelectorAll('.sk').forEach(function (c) {
+    var w = c.offsetWidth, h = c.offsetHeight, ghost = c.classList.contains('sk-ghost');
+    c.style.position = 'relative'; c.style.zIndex = '0';
+    var s = el('svg', { width: w, height: h, 'aria-hidden': 'true' });
+    s.style.cssText = 'position:absolute;left:-2px;top:-2px;overflow:visible;z-index:-1;pointer-events:none';
+    var g = el('g', {}), col = ghost ? '#a07800' : '#141414', o = 8;
+    if (!ghost) {
+      g.appendChild(el('polygon', { points: [w,0, w+D,D, w+D,h+D, w,h].join(' '), fill: 'url(#skR)' }));
+      g.appendChild(el('polygon', { points: [0,h, w,h, w+D,h+D, D,h+D].join(' '), fill: 'url(#skL)' }));
+      stroke(g, w, 0, w + D, D, col, 1.8); stroke(g, w + D, D, w + D, h + D, col, 1.8);
+      stroke(g, w + D, h + D, D, h + D, col, 1.8); stroke(g, D, h + D, 0, h, col, 1.8);
+    }
+    stroke(g, -o, 0, w + o * .6, 0, col, 2.4, ghost); stroke(g, w, -o * .6, w, h + o, col, 2.4, ghost);
+    stroke(g, w + o * .4, h, -o, h, col, 2.4, ghost); stroke(g, 0, h + o * .5, 0, -o, col, 2.4, ghost);
+    s.appendChild(g); c.insertBefore(s, c.firstChild);
+  });
 })();
 </script>
 </body>
