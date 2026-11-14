@@ -13,7 +13,8 @@
   :root { --paper:#f4f4f2; --ink:#141414; --frame:#dcdcd6; }
   * { box-sizing:border-box; margin:0; }
   html, body { height:100%; }
-  body { background:var(--frame); overflow:hidden; color:var(--ink);
+  html { background:var(--paper); transition:background .35s ease; }
+  body { background:var(--paper); transition:background .35s ease; overflow:hidden; color:var(--ink);
          font-family:'IBM Plex Mono','Courier New',monospace; -webkit-font-smoothing:antialiased; }
   #stage { position:fixed; left:50%; top:50%; width:1920px; height:1080px;
            transform-origin:0 0; }
@@ -37,6 +38,13 @@
           font:600 24px/1 'IBM Plex Mono','Courier New',monospace; letter-spacing:3px; text-transform:uppercase;
           color:#f4f4f2; background:transparent; border:2px solid #f4f4f2; cursor:pointer; }
   .slide .copy:hover { background:#f4f4f2; color:#141414; }
+  .layers .wobble { animation: wobble 4.2s ease-in-out infinite alternate; }
+  @keyframes wobble { from { transform: translate(-5px, -7px) rotate(-1.6deg); } to { transform: translate(5px, 6px) rotate(1.4deg); } }
+  @media (prefers-reduced-motion: reduce) { .layers .wobble { animation: none; } }
+  .steps5 li { display:flex; flex-direction:row; align-items:baseline; gap:28px; padding:10px 0; border-bottom:2px solid #141414; font-size:32px; line-height:1.3; color:#141414; }
+  .steps5 li:first-child { border-top:2px solid #141414; }
+  .steps5 li span { font-size:22px; font-weight:600; letter-spacing:2px; color:#8c8c86; min-width:36px; }
+  .steps5 li:nth-child(3) { font-weight:700; }
   .vid video { width:100%; height:100%; object-fit:cover; display:block; background:#000; }
   .vid .play { position:absolute; inset:0; width:100%; height:100%; border:0; padding:0;
                background:rgba(20,20,20,.18); cursor:pointer; }
@@ -63,7 +71,7 @@
     </div>
     <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; line-height:1.3; color:#5a5a5a">Generative game audio with context</p>
   </div>
-  <p style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">01 / 09</p>
+  <p style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">01 / 08</p>
   <p class="web-only" style="position:absolute; left:128px; bottom:64px; width:1100px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:1px; color:#5a5a5a">* PDF version available for download on the last slide</p>
   
 </section>
@@ -100,12 +108,12 @@
 </div>
 </div>
 <p style="position:absolute;left:128px;bottom:64px;width:800px;font-size:24px;letter-spacing:3px;text-transform:uppercase;color:#5a5a5a">b.unit</p>
-<p style="position:absolute;right:128px;bottom:64px;width:400px;font-size:24px;letter-spacing:3px;text-align:right;color:#5a5a5a">02 / 09</p>
+<p style="position:absolute;right:128px;bottom:64px;width:400px;font-size:24px;letter-spacing:3px;text-align:right;color:#5a5a5a">02 / 08</p>
 
 </section>
 <section class="slide" id="problem" data-transition="fade" style="background:#141414">
   <p id="e1-1gp23mk" style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#8c8c86">b.unit</p>
-  <p id="e2-1gp23mk" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#8c8c86">03 / 09</p>
+  <p id="e2-1gp23mk" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#8c8c86">03 / 08</p>
   <p id="pe1717977cd80r0-6ec92309" style="position:absolute; top:128px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#bdbdb6">The problem</p>
   <h2 id="pe1717977cd80r1-6ec92309" style="position:absolute; top:207px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.2; letter-spacing:-1px; color:#f4f4f2">AI was supposed to raise the ceiling.<br><span style="color:#d9b24a">For game audio — it lowered it.</span></h2>
   <p id="pe1717977cd80r3-6ec92309" style="position:absolute; top:calc(50% + 148.9px); left:50%; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:36px; line-height:1.5; color:#bdbdb6; transform:translate(-50%, -50%)">Base audio models have no context for the game. Teams generate hundreds of takes, sift through them by hand, and settle for an average result far from what they imagined.</p>
@@ -114,52 +122,36 @@
   <p id="pe1717977cd80r5-6ec92309" style="position:absolute; top:863px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:600; line-height:1.3; color:#f4f4f2">The standard is low and incomplete — we can’t accept that.</p>
   
 </section>
-<section class="slide" id="tiers" data-transition="fade" style="display:flex; flex-direction:column; gap:36px; padding:128px 128px 160px; background:#f4f4f2">
-  <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">Three tiers</p>
-  <h2 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.15; letter-spacing:-1px; color:#141414">Three ways to build with AI audio.</h2>
-  <div style="display:grid; gap:24px; grid-template-columns:1fr 1fr 1fr">
-    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px dashed #8c8c86">
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">Tier 1 · fragile</p>
-      <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:700; color:#5a5a5a">Wrapper</h3>
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; line-height:1.35; color:#5a5a5a">One external model behind an interface. Breaks when the model changes, fails, or ships the feature itself.</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; background:#dde4f0; border:2px solid #141414">
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#141414">Tier 2 · b.unit today</p>
-      <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:700; color:#141414">Compound</h3>
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; line-height:1.35; color:#141414">Routes across base models. Post-trained on production data. Wired into the pipeline. Any model can be replaced.</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:16px; padding:40px; border:2px solid #141414">
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">Tier 3 · destination</p>
-      <h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:700; color:#141414">Base model</h3>
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; line-height:1.35; color:#141414">Owns the full stack and the result. Built for what games need.</p>
-    </div>
-  </div>
-  <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; font-weight:700; line-height:1.4; color:#141414">Our Unique Formula; Dynamic base model + post-training on our own data: we build a brain that always keeps context of the game.</p>
+<section class="slide" id="tiers" data-transition="fade" style="background:#f4f4f2">
+  <p style="position:absolute; top:128px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">Three layers</p>
+  <h2 style="position:absolute; top:176px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.15; letter-spacing:-1px; color:#141414">Gen AI audio.</h2>
+  <svg class="layers" viewBox="0 0 900 590" width="900" height="590" role="img" aria-label="Three stacked layers: a generic base model at the bottom, an unstable wrapper floating above it, and the b.unit compound of skill modules on top, anchored to the base model." style="position:absolute; left:140px; top:286px; overflow:visible"><defs>
+  <pattern id="hatchL" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(60)">
+    <rect width="9" height="9" fill="#f4f4f2"/><line x1="0" y1="0" x2="0" y2="9" stroke="#141414" stroke-width="1.2" opacity=".55"/></pattern>
+  <pattern id="hatchR" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-60)">
+    <rect width="6" height="6" fill="#f4f4f2"/><line x1="0" y1="0" x2="0" y2="6" stroke="#141414" stroke-width="1.4" opacity=".8"/></pattern>
+</defs><polygon points="180.5,470.0 380.0,585.2 380.0,553.5 180.5,438.3" fill="url(#hatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="579.5,470.0 380.0,585.2 380.0,553.5 579.5,438.3" fill="url(#hatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="380.0,323.1 579.5,438.3 380.0,553.5 180.5,438.3" fill="#f4f4f2" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="338.7,379.6 353.1,395.9 315.3,407.0 300.9,390.7" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><polygon points="269.9,439.8 299.5,446.4 284.4,469.2 254.7,462.6" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><polygon points="404.3,492.0 409.8,510.0 368.1,514.3 362.6,496.2" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><polygon points="502.9,423.1 529.5,433.1 506.5,453.6 479.9,443.6" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><polygon points="461.7,381.7 458.9,399.9 416.8,397.8 419.5,379.5" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><polygon points="384.2,443.4 403.3,458.1 369.5,472.8 350.4,458.2" fill="#f4f4f2" stroke="#141414" stroke-width="2"/><line x1="210.4" y1="438.3" x2="210.4" y2="146.0" stroke="#141414" stroke-width="2" stroke-dasharray="3 7" opacity=".6"/><line x1="380.0" y1="536.2" x2="380.0" y2="243.9" stroke="#141414" stroke-width="2" stroke-dasharray="3 7" opacity=".6"/><line x1="549.6" y1="438.3" x2="549.6" y2="146.0" stroke="#141414" stroke-width="2" stroke-dasharray="3 7" opacity=".6"/><g class="wobble" style="transform-origin:389px 291px"><g transform="rotate(-3 389 291)"><polygon points="227.2,295.4 389.4,389.0 389.4,380.4 227.2,286.8" fill="url(#hatchL)" stroke="#141414" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="10 7"/><polygon points="551.5,295.4 389.4,389.0 389.4,380.4 551.5,286.8" fill="url(#hatchR)" stroke="#141414" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="10 7"/><polygon points="389.4,193.2 551.5,286.8 389.4,380.4 227.2,286.8" fill="rgba(244,244,242,.55)" stroke="#141414" stroke-width="2.5" stroke-linejoin="round" stroke-dasharray="10 7"/></g><path d="M171,246 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/><path d="M171,260 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/><path d="M608,275 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/><path d="M608,289 q8,-8 16,0 t16,0" fill="none" stroke="#141414" stroke-width="2.4" stroke-linecap="round"/></g><polygon points="327.6,78.3 380.0,108.6 380.0,76.9 327.6,46.6" fill="url(#hatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="432.4,78.3 380.0,108.6 380.0,76.9 432.4,46.6" fill="url(#hatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="380.0,16.4 432.4,46.6 380.0,76.9 327.6,46.6" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="269.0,112.2 321.4,142.4 321.4,110.7 269.0,80.5" fill="url(#hatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="373.8,112.2 321.4,142.4 321.4,110.7 373.8,80.5" fill="url(#hatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="321.4,50.2 373.8,80.5 321.4,110.7 269.0,80.5" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="386.2,112.2 438.6,142.4 438.6,110.7 386.2,80.5" fill="url(#hatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="491.0,112.2 438.6,142.4 438.6,110.7 491.0,80.5" fill="url(#hatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="438.6,50.2 491.0,80.5 438.6,110.7 386.2,80.5" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="210.4,146.0 262.8,176.2 262.8,144.6 210.4,114.3" fill="url(#hatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="315.2,146.0 262.8,176.2 262.8,144.6 315.2,114.3" fill="url(#hatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="262.8,84.1 315.2,114.3 262.8,144.6 210.4,114.3" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="327.6,146.0 380.0,176.2 380.0,137.4 327.6,107.1" fill="url(#hatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="432.4,146.0 380.0,176.2 380.0,137.4 432.4,107.1" fill="url(#hatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="380.0,76.9 432.4,107.1 380.0,137.4 327.6,107.1" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="444.8,146.0 497.2,176.2 497.2,144.6 444.8,114.3" fill="url(#hatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="549.6,146.0 497.2,176.2 497.2,144.6 549.6,114.3" fill="url(#hatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="497.2,84.1 549.6,114.3 497.2,144.6 444.8,114.3" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="269.0,179.8 321.4,210.1 321.4,178.4 269.0,148.2" fill="url(#hatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="373.8,179.8 321.4,210.1 321.4,178.4 373.8,148.2" fill="url(#hatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="321.4,117.9 373.8,148.2 321.4,178.4 269.0,148.2" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="386.2,179.8 438.6,210.1 438.6,178.4 386.2,148.2" fill="url(#hatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="491.0,179.8 438.6,210.1 438.6,178.4 491.0,148.2" fill="url(#hatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="438.6,117.9 491.0,148.2 438.6,178.4 386.2,148.2" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="327.6,213.7 380.0,243.9 380.0,212.2 327.6,182.0" fill="url(#hatchL)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="432.4,213.7 380.0,243.9 380.0,212.2 432.4,182.0" fill="url(#hatchR)" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polygon points="380.0,151.8 432.4,182.0 380.0,212.2 327.6,182.0" fill="#dde4f0" stroke="#141414" stroke-width="3" stroke-linejoin="round"/><polyline points="560,130 650,130 690,58 894,58" fill="none" stroke="#141414" stroke-width="2"/><circle cx="560" cy="130" r="4" fill="#141414"/><circle cx="894" cy="58" r="4" fill="#141414"/><polyline points="569,295 650,295 690,252 894,252" fill="none" stroke="#141414" stroke-width="2"/><circle cx="569" cy="295" r="4" fill="#141414"/><circle cx="894" cy="252" r="4" fill="#141414"/><polyline points="590,454 650,454 690,446 894,446" fill="none" stroke="#141414" stroke-width="2"/><circle cx="590" cy="454" r="4" fill="#141414"/><circle cx="894" cy="446" r="4" fill="#141414"/></svg>
+  <div style="position:absolute; left:1072px; top:286px; width:720px; gap:6px"><p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">Layer 3 · b.unit</p><h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:700; line-height:1.15; color:#141414">Compound</h3><p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; line-height:1.4; color:#5a5a5a">Skills built for game dev: context, state, style, loops, variations and layers.</p></div>
+  <div style="position:absolute; left:1072px; top:480px; width:720px; gap:6px"><p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">Layer 2 · unstable</p><h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:700; line-height:1.15; color:#5a5a5a">Wrapper</h3><p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; line-height:1.4; color:#5a5a5a">One model behind an interface. Inherits its randomness, breaks when it changes.</p></div>
+  <div style="position:absolute; left:1072px; top:674px; width:720px; gap:6px"><p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">Layer 1 · what everyone uses</p><h3 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:700; line-height:1.15; color:#141414">Base model</h3><p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; line-height:1.4; color:#5a5a5a">Random and generic: no context, no state, no style, no fit for game dev.</p></div>
+  <p style="position:absolute; top:898px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:700; line-height:1.4; color:#141414">We build a brain that is always up to date and in the context of the game.</p>
   <p style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">b.unit</p>
-  <p style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">04 / 09</p>
-  
+  <p style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">04 / 08</p>
 </section>
 <section class="slide" id="today" data-transition="fade" style="background:#f4f4f2">
   <p id="e1-ibe1mm" style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">b.unit</p>
-  <p id="e2-ibe1mm" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">05 / 09</p>
-  <p id="pbed3522f47ear0-05c2cb30" style="position:absolute; top:128px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">b.unit today</p>
-  <h2 id="pbed3522f47ear1-05c2cb30" style="position:absolute; top:207px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.15; letter-spacing:-1px; color:#141414">An MCP that joins the dev team.</h2>
-  <div id="pbed3522f47ear2-05c2cb30" style="position:absolute; top:330px; left:128px; width:1664px; display:flex; flex-direction:row; gap:40px; align-items:start">
-    <div style="display:flex; flex-direction:column; gap:28px; flex:1">
-      <ul style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; line-height:1.45; color:#141414">
-        <li>Reads the project to learn what the game is</li>
-        <li>Generates sound and music with context</li>
-        <li>Unique abilities like looping, variations, saved state and layers</li>
-        <li>Delivers it back, wired to every event trigger</li>
-        <li>Code never leaves the studio’s machine</li>
-      </ul>
-    </div>
-    <div style="width:330px; display:flex; flex-direction:row; gap:56px; align-items:center">
-      <div class="vid" style="width:330px; height:584px; border:2px solid #141414; position:relative; overflow:hidden"><video src="assets/demo.mp4" poster="assets/demo-poster.jpg" playsinline preload="metadata" aria-label="Demo: b.unit sound and music in a mobile soccer game"></video><button class="play" type="button" aria-label="Play demo with sound"></button></div>
-    </div>
-  </div>
-  <p style="position:absolute; top:628px; left:128px; width:560px; padding:16px 24px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:700; color:#f4f4f2; background:#141414">Live on 5 funded studios</p>
-  <div style="position:absolute; top:736px; left:128px; width:560px; display:flex; flex-direction:column; gap:24px">
+  <p id="e2-ibe1mm" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">05 / 08</p>
+  <p style="position:absolute; top:128px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">b.unit today</p>
+  <h2 style="position:absolute; top:207px; left:128px; width:1664px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.15; letter-spacing:-1px; color:#141414">An MCP that joins the dev team.</h2>
+  <ol class="steps5" style="position:absolute; top:330px; left:128px; width:1000px; list-style:none; margin:0; padding:0; font-family:'IBM Plex Mono', 'Courier New', monospace">
+    <li><span>01</span>Reads the project to learn what the game is</li>
+    <li><span>02</span>Generates sound and music with context</li>
+    <li><span>03</span>Unique abilities</li>
+    <li><span>04</span>Delivers it back, wired to every event trigger</li>
+    <li><span>05</span>Code never leaves the studio’s machine</li>
+  </ol>
+  <p style="position:absolute; top:736px; left:348px; width:560px; box-sizing:border-box; text-align:center; padding:14px 24px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:700; color:#f4f4f2; background:#141414">Live on 5 funded studios</p>
+  <div style="position:absolute; top:832px; left:348px; width:560px; display:flex; flex-direction:column; gap:24px">
     <div style="display:flex; flex-direction:row; justify-content:space-between; align-items:center">
       <img src="assets/logo-whalo.png" alt="Whalo" style="width:151px; height:36px; object-fit:contain">
       <img src="assets/logo-candivore.png" alt="Candivore" style="width:160px; height:36px; object-fit:contain">
@@ -170,42 +162,45 @@
       <img src="assets/logo-bd.png" alt="bd studio logo" style="width:56px; height:44px; object-fit:contain">
     </div>
   </div>
-  
-</section>
-<section class="slide" id="vector" data-transition="fade" style="display:flex; flex-direction:column; gap:40px; padding:128px 128px 160px; background:#f4f4f2">
-  <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">The vector</p>
-  <h2 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:72px; font-weight:700; line-height:1.15; letter-spacing:-1px; color:#141414">We build from the top down.</h2>
-  <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:36px; line-height:1.45; color:#5a5a5a">Model companies build a model, then look for a market. We start inside the production converting our trusting clients to save cost in production and offer areal solution</p>
-  <div style="flex:1"></div>
-  <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr">
-    <div style="display:flex; flex-direction:column; gap:16px; padding:32px; background:#d9d3ec; border:2px solid #141414">
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#141414">Now</p>
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; font-weight:600; line-height:1.35; color:#141414">b.unit, live in production</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:16px; padding:32px; border-top:2px solid #141414; border-right:2px solid #141414; border-bottom:2px solid #141414">
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">Round 1</p>
-      <p style="width:366px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; font-weight:600; line-height:1.35; color:#141414">Scale studios, revenue. dataset</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:16px; padding:32px; border-top:2px solid #141414; border-right:2px solid #141414; border-bottom:2px solid #141414">
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">Round 2</p>
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; font-weight:600; line-height:1.35; color:#141414">A base model built for games</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:16px; padding:32px; background:#141414; border-top:2px solid #141414; border-right:2px solid #141414; border-bottom:2px solid #141414">
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; font-weight:600; letter-spacing:3px; text-transform:uppercase; color:#bdbdb6">Year 5</p>
-      <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:32px; font-weight:600; line-height:1.35; color:#f4f4f2">The default audio model for game development</p>
-    </div>
+  <p style="position:absolute; top:392px; left:1138px; width:180px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:20px; font-weight:600; line-height:1.3; letter-spacing:3px; text-transform:uppercase; text-align:right; color:#5a5a5a">Live demo<br>sound on</p>
+  <div class="stage5" style="position:absolute; left:1290px; top:296px; width:510px; height:690px">
+    <svg width="510" height="690" viewBox="0 0 510 690" style="position:absolute; left:0; top:0; overflow:visible" aria-hidden="true">
+<defs>
+  <pattern id="hatch5L" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(60)"><rect width="9" height="9" fill="#f4f4f2"/><line x1="0" y1="0" x2="0" y2="9" stroke="#141414" stroke-width="1" opacity=".3"/></pattern>
+  <pattern id="hatch5R" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(-60)"><rect width="6" height="6" fill="#f4f4f2"/><line x1="0" y1="0" x2="0" y2="6" stroke="#141414" stroke-width="1" opacity=".45"/></pattern>
+</defs>
+<!-- plinth -->
+<polygon points="48.0,524.0 268.0,602.0 268.0,620.0 48.0,542.0" fill="url(#hatch5L)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/>
+<polygon points="268.0,602.0 488.0,524.0 488.0,542.0 268.0,620.0" fill="url(#hatch5R)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/>
+<polygon points="48.0,524.0 268.0,446.0 488.0,524.0 268.0,602.0" fill="#f4f4f2" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/>
+<!-- construction lines -->
+<line x1="48.0" y1="524" x2="48.0" y2="80" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 7" opacity=".45"/>
+<line x1="488.0" y1="524" x2="488.0" y2="80" stroke="#141414" stroke-width="1.5" stroke-dasharray="3 7" opacity=".45"/>
+<!-- contact shadow -->
+<polygon points="122.0,534.0 450.0,529.0 472.0,544.0 146.0,556.0" fill="url(#hatch5R)" opacity=".5"/>
+<!-- phone depth -->
+<polygon points="404.0,40.0 420.0,31.0 420.0,525.0 404.0,534.0" fill="url(#hatch5R)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/>
+<polygon points="116.0,40.0 132.0,31.0 420.0,31.0 404.0,40.0" fill="url(#hatch5L)" stroke="#8c8c86" stroke-width="1.8" stroke-linejoin="round"/>
+<!-- phone face -->
+<rect x="116" y="40" width="288" height="494" fill="#f4f4f2" stroke="#8c8c86" stroke-width="1.8"/>
+<!-- sound marks -->
+<path d="M58,290 q8,-8 16,0 t16,0" fill="none" stroke="#8c8c86" stroke-width="1.8" stroke-linecap="round"/>
+<path d="M58,304 q8,-8 16,0 t16,0" fill="none" stroke="#8c8c86" stroke-width="1.8" stroke-linecap="round"/>
+<path d="M436,340 q8,-8 16,0 t16,0" fill="none" stroke="#8c8c86" stroke-width="1.8" stroke-linecap="round"/>
+<path d="M436,354 q8,-8 16,0 t16,0" fill="none" stroke="#8c8c86" stroke-width="1.8" stroke-linecap="round"/>
+<!-- annotation leader -->
+<polyline points="124,160 86,160 62,116 36,116" fill="none" stroke="#8c8c86" stroke-width="1.5"/>
+<circle cx="124" cy="160" r="3.5" fill="#8c8c86"/>
+</svg>
+    <div class="vid" style="position:absolute; left:126px; top:50px; width:268px; height:474px; border:2px solid #141414; overflow:hidden"><video src="assets/demo.mp4" poster="assets/demo-poster.jpg" playsinline preload="metadata" aria-label="Demo: b.unit sound and music in a mobile soccer game"></video><button class="play" type="button" aria-label="Play demo with sound"></button></div>
   </div>
-  <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:36px; font-weight:700; color:#141414">we own all the training data</p>
-  <p style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">b.unit</p>
-  <p style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">06 / 09</p>
-  
 </section>
 <section class="slide" id="round1" data-transition="fade" style="background:#f4f4f2">
   <p id="e1-xrovr2" style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">b.unit</p>
-  <p id="e2-xrovr2" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">07 / 09</p>
+  <p id="e2-xrovr2" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">06 / 08</p>
   <div id="pa45c6cd8f13cr0-b553e478" style="position:absolute; top:128px; left:128px; width:1664px; height:270px; display:flex; flex-direction:column; gap:16px">
     <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:28px; font-weight:600; letter-spacing:4px; text-transform:uppercase; color:#5a5a5a">Round 1</p>
-    <h1 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:128px; font-weight:700; line-height:1.1; letter-spacing:-4px; color:#141414">$2.5M</h1>
+    <h1 style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:128px; font-weight:700; line-height:1.1; letter-spacing:-4px; color:#141414">Pre-seed</h1>
     <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:44px; font-weight:600; line-height:1.3; color:#141414">Scale b.unit.</p>
   </div>
   <div id="pa45c6cd8f13cr1-b553e478" style="position:absolute; top:445px; left:128px; width:1664px; height:341px; display:grid; gap:64px; grid-template-columns:1fr 1fr">
@@ -262,12 +257,12 @@
     </div>
   </div>
   <p style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#5a5a5a">b.unit</p>
-  <p style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">08 / 09</p>
+  <p style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#5a5a5a">07 / 08</p>
   
 </section>
 <section class="slide" id="thanks" data-transition="fade" style="background:#141414">
   <p id="e1-1gz44a8" style="position:absolute; bottom:64px; left:128px; width:800px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-transform:uppercase; color:#8c8c86">b.unit</p>
-  <p id="e2-1gz44a8" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#8c8c86">09 / 09</p>
+  <p id="e2-1gz44a8" style="position:absolute; right:128px; bottom:64px; width:400px; font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:24px; letter-spacing:3px; text-align:right; color:#8c8c86">08 / 08</p>
   <div id="pea535e5a416cr0-0b00cbed" style="position:absolute; top:246px; left:128px; width:96px; height:96px; display:flex; flex-direction:row; align-items:center; justify-content:center; background:#f4f4f2">
     <p style="font-family:'IBM Plex Mono', 'Courier New', monospace; font-size:56px; font-weight:700; line-height:1; color:#141414">b</p>
   </div>
@@ -296,6 +291,7 @@
     i = Math.max(0, Math.min(slides.length - 1, n));
     stopVideos();
     slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
+    document.documentElement.style.background = document.body.style.background = getComputedStyle(slides[i]).backgroundColor;
     if (push !== false) history.replaceState(null, '', '#' + (i + 1));
   }
 
